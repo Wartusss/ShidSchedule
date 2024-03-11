@@ -179,74 +179,80 @@ const courseNames = {
 
 const days = document.querySelectorAll('.day');
 const scheduleContent = document.querySelectorAll('.schedule-content');
+const today = new Date().getDay();
 let currentDay = '';
 let currentWeek = 'upper';
+let isAlternativeMode = false;
 const lessonTimes = ["13:05", "14:40", "16:20", "17:55"];
 
-function displaySchedule(day) {
-  scheduleContent.forEach(content => {
-    content.innerHTML = '';
-  });
-  const dayData = scheduleData[day];
-  if (dayData) {
-    dayData.forEach(timeSlotData => {
-      if ((day !== 'sunday' && day !== 'saturday') && (timeSlotData.week === 'all' || timeSlotData.week === currentWeek)) {
-        if (timeSlotData.course) {
-          const classElement = document.createElement('div');
-          classElement.classList.add('class');
-          const courseTitle = document.createElement('strong');
-          courseTitle.textContent = courseNames[timeSlotData.course];
-          courseTitle.dataset.course = timeSlotData.course;
-          classElement.appendChild(courseTitle);
-          const title = document.createElement('p');
-          const titleText = document.createElement('span');
-          titleText.textContent = timeSlotData.title;
-          title.appendChild(titleText);
-          titleText.style.fontWeight = 'bold';
-          classElement.appendChild(title);
-
-          Object.keys(parameterIcons).forEach(parameter => {
-            if (timeSlotData[parameter]) {
-              const icon = document.createElement('span');
-              icon.innerHTML = parameterIcons[parameter];
-              const parameterValue = document.createElement('span');
-              parameterValue.textContent = timeSlotData[parameter];
-              const parameterElement = document.createElement('p');
-              parameterElement.appendChild(icon);
-              parameterElement.appendChild(parameterValue);
-              classElement.appendChild(parameterElement);
-            }
-          });
-
-          if (timeSlotData.additionalInfo && timeSlotData.additionalInfo.includes('https')) {
-            const additionalInfo = document.createElement('button');
-            additionalInfo.textContent = 'Посилання';
-            additionalInfo.classList.add('additional-info-button');
-            additionalInfo.addEventListener('click', () => window.open(timeSlotData.additionalInfo, '_blank'));
-            classElement.appendChild(additionalInfo);
-          }
-          scheduleContent.forEach((content, index) => {
-            if (lessonTimes[index] === timeSlotData.time) {
-              content.appendChild(classElement);
-            }
-          });
-        }
-      }
-    });
-  }
+function openInDefaultBrowser(url) {
+    if (window.location.href.startsWith('file://')) {
+        window.open(url, '_system');
+    } else {
+        window.location.href = url;
+    }
 }
 
-function resetActiveDay() {
-  days.forEach(d => d.classList.remove('active'));
+function displaySchedule(day) {
+    scheduleContent.forEach(content => {
+        content.innerHTML = '';
+    });
+    const dayData = scheduleData[day];
+    if (dayData) {
+        dayData.forEach(timeSlotData => {
+            if ((day !== 'sunday' && day !== 'saturday') && ((timeSlotData.week === 'all' || timeSlotData.week === currentWeek) && ((!isAlternativeMode && !timeSlotData.alternative) || (isAlternativeMode && timeSlotData.alternative)))) {
+                if (timeSlotData.course) {
+                    const classElement = document.createElement('div');
+                    classElement.classList.add('class');
+                    const courseTitle = document.createElement('strong');
+                    courseTitle.textContent = courseNames[timeSlotData.course];
+                    courseTitle.dataset.course = timeSlotData.course;
+                    classElement.appendChild(courseTitle);
+                    const title = document.createElement('p');
+                    const titleText = document.createElement('span');
+                    titleText.textContent = timeSlotData.title;
+                    title.appendChild(titleText);
+                    titleText.style.fontWeight = 'bold';
+                    classElement.appendChild(title);
+
+                    Object.keys(parameterIcons).forEach(parameter => {
+                        if (timeSlotData[parameter]) {
+                            const icon = document.createElement('span');
+                            icon.innerHTML = parameterIcons[parameter];
+                            const parameterValue = document.createElement('span');
+                            parameterValue.textContent = timeSlotData[parameter];
+                            const parameterElement = document.createElement('p');
+                            parameterElement.appendChild(icon);
+                            parameterElement.appendChild(parameterValue);
+                            classElement.appendChild(parameterElement);
+                        }
+                    });
+
+                    if (timeSlotData.additionalInfo && timeSlotData.additionalInfo.includes('https')) {
+                        const additionalInfo = document.createElement('button');
+                        additionalInfo.textContent = 'Посилання';
+                        additionalInfo.classList.add('additional-info-button');
+                        additionalInfo.addEventListener('click', () => openInDefaultBrowser(timeSlotData.additionalInfo));
+                        classElement.appendChild(additionalInfo);
+                    }
+                    scheduleContent.forEach((content, index) => {
+                        if (lessonTimes[index] === timeSlotData.time) {
+                            content.appendChild(classElement);
+                        }
+                    });
+                }
+            }
+        });
+    }
 }
 
 days.forEach(day => {
-  day.addEventListener('click', () => {
-    resetActiveDay();
-    day.classList.add('active');
-    currentDay = day.dataset.day;
-    displaySchedule(currentDay);
-  });
+    day.addEventListener('click', () => {
+        days.forEach(d => d.classList.remove('active'));
+        day.classList.add('active');
+        currentDay = day.dataset.day;
+        displaySchedule(currentDay);
+    });
 });
 
 document.getElementById('upper-week').addEventListener('click', () => {
@@ -265,15 +271,77 @@ document.getElementById('lower-week').addEventListener('click', () => {
   document.getElementById('upper-week').classList.remove('active');
 });
 
-let today = new Date().getDay();
-if (today === 0) {
-  today = 6;
-} else {
-  today -= 1;
-}
+document.getElementById('normal-mode').addEventListener('click', () => {
+  if (isAlternativeMode) {
+    isAlternativeMode = false;
+    displaySchedule(currentDay);
+    document.getElementById('normal-mode').classList.add('active');
+    document.getElementById('alternative-mode').classList.remove('active');
+  }
+});
 
-const currentDayElement = days[today];
-resetActiveDay();
-currentDayElement.classList.add('active');
-currentDay = currentDayElement.dataset.day;
-displaySchedule(currentDay);
+document.getElementById('alternative-mode').addEventListener('click', () => {
+  if (!isAlternativeMode) {
+    isAlternativeMode = true;
+    displaySchedule(currentDay);
+    document.getElementById('alternative-mode').classList.add('active');
+    document.getElementById('normal-mode').classList.remove('active');
+  }
+});
+
+const resetActiveDay = () => {
+  days.forEach(d => d.classList.remove('active'));
+};
+
+const upperWeekButton = document.getElementById('upper-week');
+const lowerWeekButton = document.getElementById('lower-week');
+
+upperWeekButton.addEventListener('click', () => {
+  if (currentWeek !== 'upper') {
+    currentWeek = 'upper';
+    scheduleContent.forEach(content => content.innerHTML = '');
+    displaySchedule(currentDay);
+    upperWeekButton.classList.add('active');
+    lowerWeekButton.classList.remove('active');
+  }
+});
+
+lowerWeekButton.addEventListener('click', () => {
+  if (currentWeek !== 'lower') {
+    currentWeek = 'lower';
+    scheduleContent.forEach(content => content.innerHTML = '');
+    displaySchedule(currentDay);
+    lowerWeekButton.classList.add('active');
+    upperWeekButton.classList.remove('active');
+  }
+});
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    const links = document.querySelectorAll('a');
+    
+    links.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            if (navigator.userAgent.includes('iPhone') || navigator.userAgent.includes('Android')) {
+                window.open(link.href, '_system');
+            } else {
+                window.open(link.href, '_blank');
+            }
+        });
+    });
+});
+
+if (today === 0) {
+  const currentDayElement = days[6];
+  resetActiveDay();
+  currentDayElement.classList.add('active');
+  currentDay = currentDayElement.dataset.day;
+  displaySchedule(currentDay);
+} else {
+  const currentDayElement = days[today - 1];
+  resetActiveDay();
+  currentDayElement.classList.add('active');
+  currentDay = currentDayElement.dataset.day;
+  displaySchedule(currentDay);
+}
