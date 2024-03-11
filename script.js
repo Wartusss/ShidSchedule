@@ -179,10 +179,8 @@ const courseNames = {
 
 const days = document.querySelectorAll('.day');
 const scheduleContent = document.querySelectorAll('.schedule-content');
-const today = new Date().getDay();
 let currentDay = '';
 let currentWeek = 'upper';
-let isAlternativeMode = false;
 const lessonTimes = ["13:05", "14:40", "16:20", "17:55"];
 
 function displaySchedule(day) {
@@ -192,8 +190,7 @@ function displaySchedule(day) {
   const dayData = scheduleData[day];
   if (dayData) {
     dayData.forEach(timeSlotData => {
-      if ((day !== 'sunday' && day !== 'saturday') && ((timeSlotData.week === 'all' || timeSlotData.week === currentWeek) && 
-          ((!isAlternativeMode && !timeSlotData.alternative) || (isAlternativeMode && timeSlotData.alternative)))) {
+      if ((day !== 'sunday' && day !== 'saturday') && (timeSlotData.week === 'all' || timeSlotData.week === currentWeek)) {
         if (timeSlotData.course) {
           const classElement = document.createElement('div');
           classElement.classList.add('class');
@@ -239,9 +236,13 @@ function displaySchedule(day) {
   }
 }
 
+function resetActiveDay() {
+  days.forEach(d => d.classList.remove('active'));
+}
+
 days.forEach(day => {
   day.addEventListener('click', () => {
-    days.forEach(d => d.classList.remove('active'));
+    resetActiveDay();
     day.classList.add('active');
     currentDay = day.dataset.day;
     displaySchedule(currentDay);
@@ -264,61 +265,15 @@ document.getElementById('lower-week').addEventListener('click', () => {
   document.getElementById('upper-week').classList.remove('active');
 });
 
-document.getElementById('normal-mode').addEventListener('click', () => {
-  if (isAlternativeMode) {
-    isAlternativeMode = false;
-    displaySchedule(currentDay);
-    document.getElementById('normal-mode').classList.add('active');
-    document.getElementById('alternative-mode').classList.remove('active');
-  }
-});
-
-document.getElementById('alternative-mode').addEventListener('click', () => {
-  if (!isAlternativeMode) {
-    isAlternativeMode = true;
-    displaySchedule(currentDay);
-    document.getElementById('alternative-mode').classList.add('active');
-    document.getElementById('normal-mode').classList.remove('active');
-  }
-});
-
-const resetActiveDay = () => {
-  days.forEach(d => d.classList.remove('active'));
-};
-
-const upperWeekButton = document.getElementById('upper-week');
-const lowerWeekButton = document.getElementById('lower-week');
-
-upperWeekButton.addEventListener('click', () => {
-  if (currentWeek !== 'upper') {
-    currentWeek = 'upper';
-    scheduleContent.forEach(content => content.innerHTML = '');
-    displaySchedule(currentDay);
-    upperWeekButton.classList.add('active');
-    lowerWeekButton.classList.remove('active');
-  }
-});
-
-lowerWeekButton.addEventListener('click', () => {
-  if (currentWeek !== 'lower') {
-    currentWeek = 'lower';
-    scheduleContent.forEach(content => content.innerHTML = '');
-    displaySchedule(currentDay);
-    lowerWeekButton.classList.add('active');
-    upperWeekButton.classList.remove('active');
-  }
-});
-
+let today = new Date().getDay();
 if (today === 0) {
-  const currentDayElement = days[6];
-  resetActiveDay();
-  currentDayElement.classList.add('active');
-  currentDay = currentDayElement.dataset.day;
-  displaySchedule(currentDay);
+  today = 6;
 } else {
-  const currentDayElement = days[today - 1];
-  resetActiveDay();
-  currentDayElement.classList.add('active');
-  currentDay = currentDayElement.dataset.day;
-  displaySchedule(currentDay);
+  today -= 1;
 }
+
+const currentDayElement = days[today];
+resetActiveDay();
+currentDayElement.classList.add('active');
+currentDay = currentDayElement.dataset.day;
+displaySchedule(currentDay);
