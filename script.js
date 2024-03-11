@@ -7,8 +7,7 @@ const scheduleData = {
       "title": "",
       "teacher": "",
       "location": "",
-      "additionalInfo": "",
-      "alternative": false
+      "additionalInfo": ""
     },
     {
       "time": "14:40",
@@ -17,8 +16,7 @@ const scheduleData = {
       "title": "Турецька та китайська мови: базовий рівень",
       "teacher": "Козоріз О. П. / Нікітюк Т. В.",
       "location": "441 / 442 аудиторія",
-      "additionalInfo": "",
-      "alternative": false
+      "additionalInfo": ""
     },
     {
       "time": "16:20",
@@ -27,8 +25,7 @@ const scheduleData = {
       "title": "Нова історія країн Азії та Африки",
       "teacher": "Шевченко Н. І.",
       "location": "457 аудиторія",
-      "additionalInfo": "",
-      "alternative": false
+      "additionalInfo": ""
     },
     {
       "time": "17:55",
@@ -37,8 +34,7 @@ const scheduleData = {
       "title": "Нова історія країн Азії та Африки",
       "teacher": "Шевченко Н. І.",
       "location": "457 аудиторія",
-      "additionalInfo": "",
-      "alternative": false
+      "additionalInfo": ""
     },
   ],
   "tuesday": [
@@ -49,8 +45,7 @@ const scheduleData = {
       "title": "",
       "teacher": "",
       "location": "",
-      "additionalInfo": "",
-      "alternative": false
+      "additionalInfo": ""
     },
     {
       "time": "14:40",
@@ -59,8 +54,7 @@ const scheduleData = {
       "title": "Історія українського та зарубіжного китаєзнавства",
       "teacher": "Урусов В. Б.",
       "location": "460 аудиторія",
-      "additionalInfo": "",
-      "alternative": false
+      "additionalInfo": ""
     },
     {
       "time": "16:20",
@@ -69,8 +63,7 @@ const scheduleData = {
       "title": "Турецька та китайська мови: базовий рівень",
       "teacher": "Козоріз О. П. / Нікітюк Т. В.",
       "location": "438 / 442 аудиторія",
-      "additionalInfo": "",
-      "alternative": false
+      "additionalInfo": ""
     },
     {
       "time": "17:55",
@@ -79,8 +72,7 @@ const scheduleData = {
       "title": "Історія українського та зарубіжного китаєзнавства",
       "teacher": "Урусов В. Б.",
       "location": "460 аудиторія",
-      "additionalInfo": "",
-      "alternative": false
+      "additionalInfo": ""
     },
   ],
   "wednesday": [
@@ -91,8 +83,7 @@ const scheduleData = {
       "title": "",
       "teacher": "",
       "location": "",
-      "additionalInfo": "",
-      "alternative": false
+      "additionalInfo": ""
     },
     {
       "time": "14:40",
@@ -101,8 +92,7 @@ const scheduleData = {
       "title": "Англійська",
       "teacher": "Цупрун Т. В.",
       "location": "440 аудиторія",
-      "additionalInfo": "",
-      "alternative": false
+      "additionalInfo": ""
     },
     {
       "time": "16:20",
@@ -111,8 +101,7 @@ const scheduleData = {
       "title": "Турецька та китайська мови: базовий рівень",
       "teacher": "Козоріз О. П. / Нікітюк Т. В.",
       "location": "346 / 435 аудиторія",
-      "additionalInfo": "",
-      "alternative": false
+      "additionalInfo": ""
     },
     {
       "time": "17:55",
@@ -121,8 +110,7 @@ const scheduleData = {
       "title": "Турецька та китайська мови: базовий рівень",
       "teacher": "Козоріз О. П. / Нікітюк Т. В.",
       "location": "438 / 442 аудиторія",
-      "additionalInfo": "",
-      "alternative": false
+      "additionalInfo": ""
     },
   ],
   "thursday": [
@@ -133,8 +121,7 @@ const scheduleData = {
       "title": "",
       "teacher": "",
       "location": "",
-      "additionalInfo": "",
-      "alternative": false
+      "additionalInfo": ""
     },
     },
     {
@@ -144,8 +131,7 @@ const scheduleData = {
       "title": "Джерела до історії Сходу",
       "teacher": "Урусов В. Б.",
       "location": "440 аудиторія",
-      "additionalInfo": "",
-      "alternative": false
+      "additionalInfo": ""
     },
     {
       "time": "16:20",
@@ -154,8 +140,7 @@ const scheduleData = {
       "title": "Джерела до історії Сходу",
       "teacher": "Люлька В. А.",
       "location": "440 аудиторія",
-      "additionalInfo": "",
-      "alternative": false
+      "additionalInfo": ""
     },
   ],
   "friday": [
@@ -166,8 +151,7 @@ const scheduleData = {
       "title": "",
       "teacher": "",
       "location": "",
-      "additionalInfo": "",
-      "alternative": false
+      "additionalInfo": ""
     },
     {
       "time": "14:40",
@@ -176,19 +160,7 @@ const scheduleData = {
       "title": "Дисципліна вільного вибору",
       "teacher": "",
       "location": "Онлайн",
-      "additionalInfo": "https://telegra.ph/Discipl%D1%96na-v%D1%96lnogo-viboru-studenta-03-08",
-      "alternative": false
-    },
-    //
-    {
-      "time": "13:05",
-      "week": "all",
-      "course": "",
-      "title": "",
-      "teacher": "",
-      "location": "",
-      "additionalInfo": "",
-      "alternative": true
+      "additionalInfo": "https://telegra.ph/Discipl%D1%96na-v%D1%96lnogo-viboru-studenta-03-08"
     },
 
   ],
