@@ -8,6 +8,7 @@ const scheduleData = {
       "teacher": "",
       "location": "",
       "additionalInfo": "",
+      "alternative": false
     },
     {
       "time": "14:40",
@@ -17,6 +18,7 @@ const scheduleData = {
       "teacher": "Козоріз О. П. / Нікітюк Т. В.",
       "location": "441 / 442 аудиторія",
       "additionalInfo": "",
+      "alternative": false
     },
     {
       "time": "16:20",
@@ -26,6 +28,7 @@ const scheduleData = {
       "teacher": "Шевченко Н. І.",
       "location": "457 аудиторія",
       "additionalInfo": "",
+      "alternative": false
     },
     {
       "time": "17:55",
@@ -35,6 +38,7 @@ const scheduleData = {
       "teacher": "Шевченко Н. І.",
       "location": "457 аудиторія",
       "additionalInfo": "",
+      "alternative": false
     },
   ],
   "tuesday": [
@@ -46,6 +50,7 @@ const scheduleData = {
       "teacher": "",
       "location": "",
       "additionalInfo": "",
+      "alternative": false
     },
     {
       "time": "14:40",
@@ -55,6 +60,7 @@ const scheduleData = {
       "teacher": "Урусов В. Б.",
       "location": "460 аудиторія",
       "additionalInfo": "",
+      "alternative": false
     },
     {
       "time": "16:20",
@@ -64,6 +70,7 @@ const scheduleData = {
       "teacher": "Козоріз О. П. / Нікітюк Т. В.",
       "location": "438 / 442 аудиторія",
       "additionalInfo": "",
+      "alternative": false
     },
     {
       "time": "17:55",
@@ -73,6 +80,7 @@ const scheduleData = {
       "teacher": "Урусов В. Б.",
       "location": "460 аудиторія",
       "additionalInfo": "",
+      "alternative": false
     },
   ],
   "wednesday": [
@@ -84,6 +92,7 @@ const scheduleData = {
       "teacher": "",
       "location": "",
       "additionalInfo": "",
+      "alternative": false
     },
     {
       "time": "14:40",
@@ -93,6 +102,7 @@ const scheduleData = {
       "teacher": "Цупрун Т. В.",
       "location": "440 аудиторія",
       "additionalInfo": "",
+      "alternative": false
     },
     {
       "time": "16:20",
@@ -102,6 +112,7 @@ const scheduleData = {
       "teacher": "Козоріз О. П. / Нікітюк Т. В.",
       "location": "346 / 435 аудиторія",
       "additionalInfo": "",
+      "alternative": false
     },
     {
       "time": "17:55",
@@ -111,6 +122,7 @@ const scheduleData = {
       "teacher": "Козоріз О. П. / Нікітюк Т. В.",
       "location": "438 / 442 аудиторія",
       "additionalInfo": "",
+      "alternative": false
     },
   ],
   "thursday": [
@@ -122,6 +134,7 @@ const scheduleData = {
       "teacher": "",
       "location": "",
       "additionalInfo": "",
+      "alternative": false
     },
     },
     {
@@ -132,6 +145,7 @@ const scheduleData = {
       "teacher": "Урусов В. Б.",
       "location": "440 аудиторія",
       "additionalInfo": "",
+      "alternative": false
     },
     {
       "time": "16:20",
@@ -141,6 +155,7 @@ const scheduleData = {
       "teacher": "Люлька В. А.",
       "location": "440 аудиторія",
       "additionalInfo": "",
+      "alternative": false
     },
   ],
   "friday": [
@@ -173,16 +188,6 @@ const scheduleData = {
       "teacher": "",
       "location": "",
       "additionalInfo": "",
-      "alternative": true
-    },
-    {
-      "time": "14:40",
-      "week": "all",
-      "course": "lection",
-      "title": "Дисципліна вільного вибору",
-      "teacher": "",
-      "location": "Онлайн",
-      "additionalInfo": "https://telegra.ph/Discipl%D1%96na-v%D1%96lnogo-viboru-studenta-03-08",
       "alternative": true
     },
 
