@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Add this element inside the .container div -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="controls">
+      <button id="upper-week">Верхній тиждень</button>
+      <button id="lower-week">Нижній тиждень</button>
+    </div>
+    <div class="days">
+      <button class="day active" data-day="monday">Понеділок</button>
+      <button class="day" data-day="tuesday">Вівторок</button>
+      <button class="day" data-day="wednesday">Середа</button>
+      <button class="day" data-day="thursday">Четвер</button>
+      <button class="day" data-day="friday">П'ятниця</button>
+    </div>
+    <div class="schedule">
+      <div class="time-bar">
+        13:05<br>14:05
+      </div>
+      <div class="schedule-content"></div>
+      <div class="time-bar">
+        14:40<br>16:00
+      </div>
+      <div class="schedule-content"></div>
+      <div class="time-bar">
+        16:20<br>17:40
+      </div>
+      <div class="schedule-content"></div>
+      <div class="time-bar">
+        17:55<br>19:15
+      </div>
+      <div class="schedule-content"></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
