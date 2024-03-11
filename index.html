@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
-<!-- Add this element inside the .container div -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Schedule</title>
+  <title>Розклад Сходознавства</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <div class="controls">
-      <button id="upper-week">Верхній тиждень</button>
-      <button id="lower-week">Нижній тиждень</button>
+  <div class="controls">
+    <div class="controls-large">
+      <button id="upper-week" class="active">Верхній тиждень</button>
+      <button id="lower-week" class="lower">Нижній тиждень</button>
+    </div>
     </div>
     <div class="days">
-      <button class="day active" data-day="monday">Понеділок</button>
-      <button class="day" data-day="tuesday">Вівторок</button>
-      <button class="day" data-day="wednesday">Середа</button>
-      <button class="day" data-day="thursday">Четвер</button>
-      <button class="day" data-day="friday">П'ятниця</button>
+      <button class="day active" data-day="monday"><span class="full-title">Понеділок</span><span class="abbreviated-title">Пн</span></button>
+      <button class="day" data-day="tuesday"><span class="full-title">Вівторок</span><span class="abbreviated-title">Вт</span></button>
+      <button class="day" data-day="wednesday"><span class="full-title">Середа</span><span class="abbreviated-title">Ср</span></button>
+      <button class="day" data-day="thursday"><span class="full-title">Четвер</span><span class="abbreviated-title">Чт</span></button>
+      <button class="day" data-day="friday"><span class="full-title">П'ятниця</span><span class="abbreviated-title">Пт</span></button>
     </div>
     <div class="schedule">
       <div class="time-bar">
@@ -38,6 +40,7 @@
       <div class="schedule-content"></div>
     </div>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
