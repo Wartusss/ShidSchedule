@@ -113,7 +113,7 @@ const scheduleData = {
       "additionalInfo": ""
     },
   ],
-  "thursday": [
+"thursday": [
     {
       "time": "13:05",
       "week": "all",
@@ -122,7 +122,6 @@ const scheduleData = {
       "teacher": "",
       "location": "",
       "additionalInfo": ""
-    },
     },
     {
       "time": "14:40",
@@ -141,7 +140,7 @@ const scheduleData = {
       "teacher": "Люлька В. А.",
       "location": "440 аудиторія",
       "additionalInfo": ""
-    },
+    }
   ],
   "friday": [
     {
