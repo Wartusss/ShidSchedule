@@ -14,7 +14,7 @@ const scheduleData = {
       "week": "all",
       "course": "language",
       "title": "Турецька та китайська мови: базовий рівень",
-      "teacher": "Козоріз О. П. / Нікітюк Т. В.",
+      "teacher": "Нікітюк Т. В. / Козоріз О. П. ",
       "location": "441 / 442 аудиторія",
       "additionalInfo": ""
     },
@@ -50,7 +50,7 @@ const scheduleData = {
     {
       "time": "14:40",
       "week": "all",
-      "course": "seimnar",
+      "course": "seminar",
       "title": "Історія українського та зарубіжного китаєзнавства",
       "teacher": "Урусов В. Б.",
       "location": "460 аудиторія",
@@ -61,7 +61,7 @@ const scheduleData = {
       "week": "all",
       "course": "language",
       "title": "Турецька та китайська мови: базовий рівень",
-      "teacher": "Козоріз О. П. / Нікітюк Т. В.",
+      "teacher": "Нікітюк Т. В. / Козоріз О. П. ",
       "location": "438 / 442 аудиторія",
       "additionalInfo": ""
     },
@@ -99,7 +99,7 @@ const scheduleData = {
       "week": "all",
       "course": "language",
       "title": "Турецька та китайська мови: базовий рівень",
-      "teacher": "Козоріз О. П. / Нікітюк Т. В.",
+      "teacher": "Нікітюк Т. В. / Козоріз О. П. ",
       "location": "346 / 435 аудиторія",
       "additionalInfo": ""
     },
@@ -108,12 +108,12 @@ const scheduleData = {
       "week": "upper",
       "course": "language",
       "title": "Турецька та китайська мови: базовий рівень",
-      "teacher": "Козоріз О. П. / Нікітюк Т. В.",
+      "teacher": "Нікітюк Т. В. / Козоріз О. П. ",
       "location": "438 / 442 аудиторія",
       "additionalInfo": ""
     },
   ],
-"thursday": [
+  "thursday": [
     {
       "time": "13:05",
       "week": "all",
@@ -128,7 +128,7 @@ const scheduleData = {
       "week": "all",
       "course": "lection",
       "title": "Джерела до історії Сходу",
-      "teacher": "Урусов В. Б.",
+      "teacher": "Урусов В. Б. / Люлька В. А.",
       "location": "440 аудиторія",
       "additionalInfo": ""
     },
@@ -137,7 +137,7 @@ const scheduleData = {
       "week": "upper",
       "course": "seminar",
       "title": "Джерела до історії Сходу",
-      "teacher": "Люлька В. А.",
+      "teacher": "Урусов В. Б. / Люлька В. А.",
       "location": "440 аудиторія",
       "additionalInfo": ""
     }
