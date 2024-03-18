@@ -275,25 +275,6 @@ document.getElementById('lower-week').addEventListener('click', () => {
   document.getElementById('upper-week').classList.remove('active');
 });
 
-document.getElementById('normal-mode').addEventListener('click', () => {
-  if (isAlternativeMode) {
-    isAlternativeMode = false;
-    displaySchedule(currentDay);
-    document.getElementById('normal-mode').classList.add('active');
-    document.getElementById('alternative-mode').classList.remove('active');
-  }
-});
-
-
-document.getElementById('alternative-mode').addEventListener('click', () => {
-  if (!isAlternativeMode) {
-    isAlternativeMode = true;
-    displaySchedule(currentDay);
-    document.getElementById('alternative-mode').classList.add('active');
-    document.getElementById('normal-mode').classList.remove('active');
-  }
-});
-
 const resetActiveDay = () => {
   days.forEach(d => d.classList.remove('active'));
 };
