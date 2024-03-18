@@ -440,12 +440,12 @@ body {
 @media (min-width: 769px) {
   .schedule {
     display: flex;
-    flex-wrap: nowrap; /* Ensure items stay on the same line */
-    overflow-x: auto; /* Add horizontal scrolling for smaller screens */
+    flex-wrap: nowrap;
+    overflow-x: auto;
   }
 
   .schedule .class {
-    flex-basis: calc(50% - 20px); /* Two lessons per row */
+    flex-basis: calc(50% - 20px);
     margin-right: 20px;
   }
 
@@ -459,6 +459,6 @@ body {
 
 @media screen and (max-width: 375px) {
   .mode-buttons button#alternative-mode {
-    padding: 8px; /* adjust padding */
+    padding: 8px;
   }
 }
