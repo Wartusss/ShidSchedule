@@ -41,6 +41,14 @@ body {
   margin-bottom: 10px;
 }
 
+#upper-week:hover,
+#lower-week:hover,
+#upper-week.active:hover,
+#lower-week.active:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
 .controls button:hover {
   background-color: #45a049;
 }
@@ -91,7 +99,7 @@ body {
 }
 
 .time-bar {
-  width: 50px;
+  width: 30px;
   background-color: #3498db;
   color: #fff;
   padding: 10px;
@@ -110,9 +118,8 @@ body {
   margin-top: 20px;
   display: flex;
 }
-
 .time-bar-block .time-bar {
-  width: 80px;
+  width: 30px;
   background-color: #ecf0f1;
   color: #444;
   padding: 10px;
@@ -145,7 +152,7 @@ body {
 .schedule-content {
   flex: 1;
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: 5px;
   padding: 25px;
   max-width: 100%;
   overflow-x: auto;
@@ -164,7 +171,7 @@ body {
   margin-bottom: 10px;
   transition: box-shadow 0.2s ease;
   cursor: pointer;
-  flex-wrap: wrap; /* Add wrap property */
+  flex-wrap: wrap;
 }
 
 .schedule .class:hover {
@@ -184,7 +191,7 @@ body {
   color: #fff;
   cursor: pointer;
   transition: all 0.2s ease;
-  flex-wrap: wrap; /* Add wrap property */
+  flex-wrap: wrap;
 }
 
 .schedule .class strong[data-course="lection"] {
