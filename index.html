@@ -8,12 +8,20 @@
 </head>
 <body>
   <div class="container">
-  <div class="controls">
-    <div class="controls-large">
+    <div class="theme-switch">
+      <i class="far fa-lightbulb"></i>
+      <label class="switch">
+        <input type="checkbox" id="switch">
+        <span class="slider round"></span>
+      </label>
+      <i class="far fa-moon"></i>
+    </div>
+    <div class="controls">
       <button id="upper-week" class="active">Верхній тиждень</button>
       <button id="lower-week" class="lower">Нижній тиждень</button>
     </div>
-    </div>
+  </div>
+  <div class="days-schedule-container">
     <div class="days">
       <button class="day active" data-day="monday"><span class="full-title">Понеділок</span><span class="abbreviated-title">Пн</span></button>
       <button class="day" data-day="tuesday"><span class="full-title">Вівторок</span><span class="abbreviated-title">Вт</span></button>
