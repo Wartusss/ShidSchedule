@@ -15,6 +15,16 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   background-color: #fff;
+  margin-bottom: 15px;
+}
+
+.days-schedule-container {
+  max-width: 100%;
+  margin: 15px auto 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: #fff;
 }
 
 .controls {
@@ -45,7 +55,7 @@ body {
 #lower-week:hover,
 #upper-week.active:hover,
 #lower-week.active:hover {
-  background-color: #007bff;
+  background-color: #0260c5;
   color: #fff;
 }
 
@@ -113,11 +123,13 @@ body {
   font-weight: bold;
 }
 
+
 .time-bar-block {
   position: relative;
   margin-top: 20px;
   display: flex;
 }
+
 .time-bar-block .time-bar {
   width: 30px;
   background-color: #ecf0f1;
@@ -132,6 +144,27 @@ body {
   font-weight: bold;
 }
 
+.current-time .time-bar {
+  width: 30px;
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 0;
+}
+
+.time-slot {
+  text-align: center;
+  padding: 2px 0;
+  margin-top: 5px;
+}
+
 .time-bar-block .schedule-content {
   flex: 1;
   border: 1px solid #ddd;
@@ -140,13 +173,7 @@ body {
   overflow-x: auto;
   font-size: 14px;
   line-height: 1.2;
-}
-
-
-.time-slot {
-  text-align: center;
-  padding: 2px 0;
-  margin-top: 5px;
+  display: none;
 }
 
 .schedule-content {
@@ -161,6 +188,7 @@ body {
   margin-left: 15px;
   margin-top: 10px;
   flex-wrap: wrap;
+  display: none;
 }
 
 .schedule .class {
@@ -204,10 +232,6 @@ body {
 
 .schedule .class strong[data-course="language"] {
   background-color: #f39c12;
-}
-
-.schedule .class strong:hover {
-  background-color: #2980b9;
 }
 
 .schedule .class p,
@@ -275,39 +299,6 @@ body {
   color: #fff;
 }
 
-.mode-buttons {
-  display: flex;
-  justify-content: space-between;
-  width: 300px;
-  margin-bottom: 20px;
-}
-
-.mode-buttons button {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.mode-buttons button.active {
-  background-color: #4CAF50;
-  color: #fff;
-}
-
-.mode-buttons button:not(.active) {
-  background-color: #f0f4f8;
-  color: #444;
-}
-
-.mode-buttons button:hover {
-  background-color: #45a049;
-  color: #fff;
-}
-
 .controls button {
   padding: 10px 25px;
   border: none;
@@ -340,7 +331,21 @@ body {
   color: #fff;
 }
 
+.theme-switch i {
+  margin-right: 5px;
+}
+.theme-switch label {
+  margin: 0 5px;
+}
+.theme-switch .fa-sun {
+  margin-left: 5px;
+}
 @media (max-width: 768px) {
+  .schedule .class strong,
+  .schedule .class p {
+    white-space: normal;
+  }
+
   .schedule {
     display: flex;
     flex-direction: column;
@@ -388,36 +393,12 @@ body {
     margin-bottom: 10px;
   }
 
-  .mode-buttons {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
-  .mode-buttons button {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
-    width: 100%;
-    height: 100%;
-  }
-  .mode-buttons button:last-child {
-    margin-bottom: 0;
-  }
-
   .controls > div {
     flex: 1;
     margin-right: 10px;
   }
 
-  .controls button,
-  .mode-buttons button {
+  .controls button {
     padding: 10px 20px;
     flex: 1;
     margin-right: 0;
@@ -432,7 +413,18 @@ body {
   .controls button {
     width: 100%;
   }
+}
 
+#upper-week:not(.active),
+#lower-week:not(.active) {
+  background-color: #f0f4f8;
+  color: #000000;
+}
+
+#upper-week:not(.active):hover,
+#lower-week:not(.active):hover {
+  background-color: #d9d9d9;
+  color: #000000;
 }
 
 @media (max-width: 400px) {
@@ -445,6 +437,11 @@ body {
 }
 
 @media (min-width: 769px) {
+  .schedule .class strong,
+  .schedule .class p {
+    white-space: nowrap;
+  }
+
   .schedule {
     display: flex;
     flex-wrap: nowrap;
@@ -459,13 +456,207 @@ body {
   .schedule .class:nth-child(odd) {
     margin-right: 0;
   }
+
   .controls {
     justify-content: flex-start;
   }
 }
 
-@media screen and (max-width: 375px) {
-  .mode-buttons button#alternative-mode {
-    padding: 8px;
-  }
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 5px;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 25px;
+  width: 25px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #444;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #444;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.night {
+  color: #fff;
+  background-color: #222;
+}
+
+.night body {
+ background-color: #222;
+ color: #ddd;
+}
+
+.night .container {
+ background-color: #333;
+}
+
+.night .days-schedule-container {
+  background-color: #333;
+}
+
+.night .controls button {
+ background-color: #3498db;
+ color: #222;
+}
+
+.night #upper-week:hover,
+.night #lower-week:hover,
+.night #upper-week.active:hover,
+.night #lower-week.active:hover {
+ background-color: #007bff;
+ color: #222;
+}
+
+.night .controls button:hover {
+ background-color: #2980b9;
+}
+
+.night .days button {
+ color: #bbb;
+}
+
+.night .days button.active {
+ background-color: #2980b9;
+ color: #222;
+}
+
+.night .days button:hover {
+ background-color: #1775ad;
+}
+
+.night .time-bar {
+ background-color: #444;
+ color: #ddd;
+}
+
+.night .current-time .time-bar {
+  background-color: #22618c;
+}
+
+.night .time-bar-block .schedule-content {
+ border: 1px solid #444;
+}
+
+.night .schedule-content {
+ border: 1px solid #444;
+}
+
+.night .schedule .class {
+ background: #333;
+}
+
+.night .schedule .class strong {
+ background-color: #2980b9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.night .schedule .class strong[data-course="lection"] {
+ background-color: #22618c;
+}
+
+.night .schedule .class strong[data-course="seminar"] {
+ background-color: #1a7440;
+}
+
+.night .schedule .class strong[data-course="language"] {
+ background-color: #bc711a;
+}
+
+.night .schedule .class i {
+ color: #777;
+}
+
+.night .days button.active-today {
+ background-color: #333;
+ color: #bbb;
+}
+
+.night #upper-week {
+ background-color: #444;
+}
+
+.night #lower-week {
+ width: 150px;
+ background-color: #444;
+ color: #bbb;
+}
+
+.night #upper-week.active,
+.night #lower-week.active {
+ background-color: #0260c5;
+ color: #222;
+}
+
+.night #upper-week:not(.active),
+.night #lower-week:not(.active) {
+  background-color: #222;
+  color: #ffffff;
+}
+
+.night #upper-week:not(.active):hover,
+.night #lower-week:not(.active):hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.night .controls button {
+ background-color: #3498db;
+ color: #222;
+}
+
+.night .schedule .class button.additional-info-button {
+ border: 2px solid #2980b9;
+ color: #2980b9;
+}
+
+.night .schedule .class button.additional-info-button:hover {
+ background-color: #2980b9;
+ color: #ddd;
 }
