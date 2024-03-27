@@ -766,7 +766,6 @@ input:checked + .slider:before {
 }
 
 .night #lower-week {
- width: 150px;
  background-color: #444;
  color: #bbb;
 }
