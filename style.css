@@ -11,26 +11,31 @@ body {
 .container {
   max-width: 100%;
   margin: 0 auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.125);
   padding: 20px;
   background-color: #fff;
-  margin-bottom: 15px;
+  margin-bottom: 32px;
 }
 
 .days-schedule-container {
   max-width: 100%;
-  margin: 15px auto 0;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.125);
   padding: 20px;
   background-color: #fff;
+  margin-bottom: 32px;
 }
 
+.container, .days-schedule-container {
+  border: 1px solid #9fa9d0;
+}
 .controls {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  margin-bottom: 0px;
 }
 
 .controls > div {
@@ -51,14 +56,6 @@ body {
   margin-bottom: 10px;
 }
 
-#upper-week:hover,
-#lower-week:hover,
-#upper-week.active:hover,
-#lower-week.active:hover {
-  background-color: #0260c5;
-  color: #fff;
-}
-
 .controls button:hover {
   background-color: #45a049;
 }
@@ -68,11 +65,50 @@ body {
   color: #fff;
 }
 
+.controls button.active {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+.mode-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+}
+
+.mode-buttons button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.mode-buttons button.active {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+.mode-buttons button:hover {
+  background-color: #45a049;
+  color: #fff;
+}
+
+#upper-week:hover,
+#lower-week:hover,
+#upper-week.active:hover,
+#lower-week.active:hover {
+  background-color: #0260c5;
+  color: #fff;
+}
+
 .days {
   display: flex;
   justify-content: space-between;
   overflow-x: auto;
-  margin-bottom: 10px;
 }
 
 .days button {
@@ -102,93 +138,124 @@ body {
   background-color: #2980b9;
 }
 
+.time-bar {
+  width: 40px;
+  background-color: #3498db;
+  color: #fff;
+  padding: 12px;
+  border-radius: 0 10px 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.time-bar-block {
+  position: relative;
+  margin-top: 30px;
+  display: flex;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.time-bar-block .time-bar {
+  width: 40px;
+  background-color: #f3f3f3;
+  color: #444;
+  padding: 12px;
+  border-radius: 10px 0 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.current-time .time-bar {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.time-slot {
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #444;
+}
+
+.time-bar-block:before,
+.time-bar-block:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 20px;
+  height: 100%;
+  background: #f3f3f3;
+  z-index: -1;
+}
+
+.time-bar-block:before {
+  left: 0;
+  border-radius: 10px 0 0 0;
+}
+
+.time-bar-block:after {
+  right: 0;
+  border-radius: 0 0 0 10px;
+}
+
+.time-bar-block:first-child .time-bar:before {
+  background: #fff;
+}
+
+.time-bar-block:last-child .time-bar:after {
+  background: #fff;
+}
+
+.time-bar-block .schedule-content {
+  background-color: #fff;
+  border: 1px solid rgba(159, 169, 208, 0.5);
+  border-left: none;
+  border-top: none;
+  border-bottom: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  flex: 1 1 300px;
+  padding: 25px;
+  overflow-x: auto;
+  overflow-y: auto;
+  font-size: 14px;
+  line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+}
+
 .schedule {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
 }
 
-.time-bar {
-  width: 30px;
-  background-color: #3498db;
-  color: #fff;
-  padding: 10px;
-  border-radius: 5px;
-  margin-left: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-
-.time-bar-block {
-  position: relative;
-  margin-top: 20px;
-  display: flex;
-}
-
-.time-bar-block .time-bar {
-  width: 30px;
-  background-color: #ecf0f1;
-  color: #444;
-  padding: 10px;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.current-time .time-bar {
-  width: 30px;
-  background-color: #3498db;
-  color: #fff;
-  padding: 10px;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  font-weight: bold;
-  margin-left: 0;
-}
-
-.time-slot {
-  text-align: center;
-  padding: 2px 0;
-  margin-top: 5px;
-}
-
-.time-bar-block .schedule-content {
-  flex: 1;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 25px;
-  overflow-x: auto;
-  font-size: 14px;
-  line-height: 1.2;
-  display: none;
-}
-
 .schedule-content {
-  flex: 1;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid rgba(159, 169, 208, 0.5);
+  border-left: none;
+  border-top: none;
+  border-bottom: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  flex: 1 1 300px;
   padding: 25px;
-  max-width: 100%;
-  overflow-x: auto;
-  font-size: 14px;
-  line-height: 1.2;
-  margin-left: 15px;
-  margin-top: 10px;
-  flex-wrap: wrap;
-  display: none;
+  overflow-y: auto;
+  font-size: 16px;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
 }
 
 .schedule .class {
@@ -197,13 +264,8 @@ body {
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: 10px;
-  transition: box-shadow 0.2s ease;
   cursor: pointer;
   flex-wrap: wrap;
-}
-
-.schedule .class:hover {
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
 }
 
 .schedule .class strong {
@@ -262,55 +324,28 @@ body {
   display: none;
 }
 
-.controls button.active {
-  background-color: #4CAF50;
-  color: #fff;
-}
 
 #upper-week {
-  width: 150px;
-  margin-right: 5px;
   background-color: #f0f0f0;
   color: #333;
-  padding: 10px;
   cursor: pointer;
   border-radius: 5px;
   box-sizing: border-box;
 }
 
 #lower-week {
-  width: 150px;
   background-color: #f0f0f0;
   color: #333;
-  padding: 10px;
   cursor: pointer;
   border-radius: 5px;
   box-sizing: border-box;
 }
 
-#upper-week,
-#lower-week {
-  margin-right: 0;
-}
 
 #upper-week.active,
 #lower-week.active {
   background-color: #007bff;
   color: #fff;
-}
-
-.controls button {
-  padding: 10px 25px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: #4CAF50;
-  color: #fff;
-  transition: background-color 0.2s ease;
-  font-size: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 10px;
 }
 
 .schedule .class button.additional-info-button {
@@ -337,9 +372,16 @@ body {
 .theme-switch label {
   margin: 0 5px;
 }
-.theme-switch .fa-sun {
-  margin-left: 5px;
+.theme-switch .fa-lightbulb,
+.theme-switch .fa-moon {
+  font-size: 18px;
+  margin-bottom: -7px;
 }
+
+.theme-switch .fa-moon {
+  margin-left: -13px;
+}
+
 @media (max-width: 768px) {
   .schedule .class strong,
   .schedule .class p {
@@ -351,14 +393,37 @@ body {
     flex-direction: column;
   }
 
-  .time-bar {
-    margin-left: 0;
-    margin-right: 15px;
+  .time-bar,
+  .schedule-content,
+  .days {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    flex-wrap: nowrap;
   }
 
-  .schedule-content {
-    margin-left: 0;
-    margin-right: 15px;
+  .time-bar-block .schedule-content {
+    background-color: #fff;
+    border: 1px solid rgba(159, 169, 208, 0.5);
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex: 1 1 300px;
+    padding: 25px;
+    overflow-x: auto;
+    overflow-y: auto;
+    font-size: 14px;
+    line-height: 1.2;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .time-bar {
+    margin-right: 10px;
   }
 
   .days {
@@ -366,13 +431,20 @@ body {
     justify-content: space-between;
     overflow-x: auto;
     margin-bottom: 10px;
-    flex-wrap: nowrap;
   }
 
   .days button {
-    flex: 0 0 auto;
-    width: auto;
-    margin-right: 10px;
+    flex: 1;
+    white-space: nowrap;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: transparent;
+    color: #333;
+    transition: background-color 0.2s ease;
+    font-size: 14px;
+    font-weight: bold;
   }
 
   .days button:last-child {
@@ -388,52 +460,82 @@ body {
   }
 
   .controls {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 10px;
+    flex-direction: row;
+    justify-content: center;
   }
-
   .controls > div {
     flex: 1;
+  }
+  .controls button {
+    flex-basis: calc(50% - 5px);
+    min-width: 130px;
+  }
+
+
+
+  
+  .controls button,
+  .mode-buttons button {
+    flex: 1;
+    min-width: 100px;
+  }
+
+  .controls button:last-child {
+    margin-right: 0;
+  }
+
+  .mode-buttons {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .mode-buttons button {
+    width: calc(50% - 5px);
+    min-width: 100px;
+  }
+  .mode-buttons button:last-child {
+    margin-right: 0;
+  }
+
+  .time-bar-block {
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+
+  .time-bar-block .time-bar {
     margin-right: 10px;
   }
 
-  .controls button {
-    padding: 10px 20px;
-    flex: 1;
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-  .controls > div {
-    flex-basis: 100%;
-    margin-right: 0;
-    margin-bottom: 10px;
+  .schedule-content,
+  .days {
+    margin: 0;
+    padding: 0;
   }
 
-  .controls button {
-    width: 100%;
+  .schedule-content .class p,
+  .schedule-content .class strong {
+    line-height: 1.2;
+  }
+
+  .schedule-content .class br {
+    display: none;
   }
 }
 
+  
 #upper-week:not(.active),
-#lower-week:not(.active) {
+#lower-week:not(.active),
+#normal-mode:not(.active),
+#alternative-mode:not(.active) {
   background-color: #f0f4f8;
   color: #000000;
 }
 
 #upper-week:not(.active):hover,
-#lower-week:not(.active):hover {
+#lower-week:not(.active):hover,
+#normal-mode:not(.active):hover,
+#alternative-mode:not(.active):hover {
   background-color: #d9d9d9;
   color: #000000;
-}
-
-@media (max-width: 400px) {
-  #upper-week,
-  #lower-week {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
 }
 
 @media (min-width: 769px) {
@@ -442,12 +544,26 @@ body {
     white-space: nowrap;
   }
 
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
   .schedule {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
   }
 
+  .time-bar {
+    margin-left: 15px;
+  }
+  
+  .mode-buttons {
+    height: calc(100% + 10px);
+  }
+  
   .schedule .class {
     flex-basis: calc(50% - 20px);
     margin-right: 20px;
@@ -457,16 +573,13 @@ body {
     margin-right: 0;
   }
 
-  .controls {
-    justify-content: flex-start;
-  }
 }
 
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
+  width: 72px;
+  height: 46px;
 }
 
 .switch input {
@@ -478,10 +591,10 @@ body {
 .slider {
   position: absolute;
   cursor: pointer;
-  top: 0;
+  top: 5px;
   left: 0;
-  right: 0;
-  bottom: 5px;
+  right: 12px;
+  bottom: 12px;
   background-color: #ccc;
   -webkit-transition: .4s;
   transition: .4s;
@@ -516,7 +629,7 @@ input:checked + .slider:before {
 }
 
 .slider.round {
-    border-radius: 34px;
+  border-radius: 34px;
 }
 
 .slider.round:before {
@@ -571,6 +684,36 @@ input:checked + .slider:before {
  background-color: #1775ad;
 }
 
+.night .time-bar-block:before,
+.night .time-bar-block:after {
+  background: #444;
+}
+
+.night .time-bar-block:first-child .time-bar:before {
+  background: #333;
+}
+
+.night .time-bar-block:last-child .time-bar:after {
+  background: #333;
+}
+
+.night .time-bar-block .schedule-content {
+  background-color: #333;
+  border: 1px solid rgba(159, 169, 208, 0.5);
+  border-left: none;
+  border-top: none;
+  border-bottom: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  flex: 1 1 300px;
+  padding: 25px;
+  overflow-x: auto;
+  overflow-y: auto;
+  font-size: 14px;
+  line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+}
+
 .night .time-bar {
  background-color: #444;
  color: #ddd;
@@ -581,7 +724,7 @@ input:checked + .slider:before {
 }
 
 .night .time-bar-block .schedule-content {
- border: 1px solid #444;
+  background-color: #333;
 }
 
 .night .schedule-content {
@@ -634,16 +777,31 @@ input:checked + .slider:before {
  color: #222;
 }
 
+.night .mode-buttons button.active {
+ background-color: #3f9742;
+ color: #222;
+}
+
 .night #upper-week:not(.active),
-.night #lower-week:not(.active) {
+.night #lower-week:not(.active),
+.night #normal-mode:not(.active),
+.night #alternative-mode:not(.active) {
   background-color: #222;
   color: #ffffff;
 }
 
 .night #upper-week:not(.active):hover,
-.night #lower-week:not(.active):hover {
+.night #lower-week:not(.active):hover,
+.night #normal-mode:not(.active):hover,
+.night #alternative-mode:not(.active):hover {
   background-color: #000000;
   color: #ffffff;
+}
+
+
+.night .mode-buttons button:hover {
+ background-color: #4cbd50;
+ color: #222;
 }
 
 .night .controls button {
