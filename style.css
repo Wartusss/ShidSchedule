@@ -665,7 +665,7 @@ input:checked + .slider:before {
   border: 1px solid rgba(159, 169, 208, 0.5);
   border-left: none;
   border-top: none;
-  border-right: none;
+  border-bottom: none;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   flex: 1 1 300px;
   padding: 25px;
@@ -675,6 +675,10 @@ input:checked + .slider:before {
   line-height: 1.2;
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  border-right: none;
 }
 
 .night .time-bar {
