@@ -47,7 +47,6 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #4CAF50;
   color: #fff;
   transition: background-color 0.2s ease;
   font-size: 14px;
@@ -56,18 +55,13 @@ body {
   margin-bottom: 10px;
 }
 
+.controls button.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
 .controls button:hover {
-  background-color: #45a049;
-}
-
-.controls button.active {
-  background-color: #4CAF50;
-  color: #fff;
-}
-
-.controls button.active {
-  background-color: #4CAF50;
-  color: #fff;
+  background-color: #0260c5;
 }
 
 .mode-buttons {
@@ -97,18 +91,11 @@ body {
   color: #fff;
 }
 
-#upper-week:hover,
-#lower-week:hover,
-#upper-week.active:hover,
-#lower-week.active:hover {
-  background-color: #0260c5;
-  color: #fff;
-}
-
 .days {
   display: flex;
   justify-content: space-between;
   overflow-x: auto;
+  margin-bottom: 10px;
 }
 
 .days button {
@@ -324,30 +311,6 @@ body {
   display: none;
 }
 
-
-#upper-week {
-  background-color: #f0f0f0;
-  color: #333;
-  cursor: pointer;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-#lower-week {
-  background-color: #f0f0f0;
-  color: #333;
-  cursor: pointer;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-
-#upper-week.active,
-#lower-week.active {
-  background-color: #007bff;
-  color: #fff;
-}
-
 .schedule .class button.additional-info-button {
   padding: 8px 15px;
   border: 2px solid #3498db;
@@ -364,22 +327,6 @@ body {
 .schedule .class button.additional-info-button:hover {
   background-color: #3498db;
   color: #fff;
-}
-
-.theme-switch i {
-  margin-right: 5px;
-}
-.theme-switch label {
-  margin: 0 5px;
-}
-.theme-switch .fa-lightbulb,
-.theme-switch .fa-moon {
-  font-size: 18px;
-  margin-bottom: -7px;
-}
-
-.theme-switch .fa-moon {
-  margin-left: -13px;
 }
 
 @media (max-width: 768px) {
@@ -405,6 +352,10 @@ body {
     flex-wrap: nowrap;
   }
 
+  .time-bar {
+    margin-right: 10px;
+  }
+
   .time-bar-block .schedule-content {
     background-color: #fff;
     border: 1px solid rgba(159, 169, 208, 0.5);
@@ -420,10 +371,6 @@ body {
     line-height: 1.2;
     display: flex;
     flex-direction: column;
-  }
-  
-  .time-bar {
-    margin-right: 10px;
   }
 
   .days {
@@ -471,9 +418,6 @@ body {
     min-width: 130px;
   }
 
-
-
-  
   .controls button,
   .mode-buttons button {
     flex: 1;
@@ -521,7 +465,6 @@ body {
   }
 }
 
-  
 #upper-week:not(.active),
 #lower-week:not(.active),
 #normal-mode:not(.active),
@@ -559,11 +502,11 @@ body {
   .time-bar {
     margin-left: 15px;
   }
-  
+
   .mode-buttons {
     height: calc(100% + 10px);
   }
-  
+
   .schedule .class {
     flex-basis: calc(50% - 20px);
     margin-right: 20px;
@@ -573,6 +516,26 @@ body {
     margin-right: 0;
   }
 
+}
+.theme-switch i {
+  margin-right: 5px;
+}
+.theme-switch label {
+  margin: 0 5px;
+}
+.theme-switch .fa-lightbulb {
+  font-size: 18px;
+  margin-bottom: -8px;
+}
+
+.theme-switch .fa-moon {
+  font-size: 18px;
+  margin-bottom: -9px;
+}
+
+
+.theme-switch .fa-moon {
+  margin-left: -13px;
 }
 
 .switch {
@@ -702,7 +665,7 @@ input:checked + .slider:before {
   border: 1px solid rgba(159, 169, 208, 0.5);
   border-left: none;
   border-top: none;
-  border-bottom: none;
+  border-right: none;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   flex: 1 1 300px;
   padding: 25px;
