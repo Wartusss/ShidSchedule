@@ -678,8 +678,9 @@ input:checked + .slider:before {
 }
 
 @media (max-width: 768px) {
+.night .time-bar-block .schedule-content {
   border-right: none;
-}
+}}
 
 .night .time-bar {
  background-color: #444;
