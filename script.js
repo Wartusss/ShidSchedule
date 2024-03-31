@@ -160,7 +160,7 @@ const scheduleData = {
       "teacher": "",
       "location": "Онлайн",
       "additionalInfo": "https://telegra.ph/Discipl%D1%96na-v%D1%96lnogo-viboru-studenta-03-08"4
-    }
+    },
   ],
   "saturday": [
     {},
