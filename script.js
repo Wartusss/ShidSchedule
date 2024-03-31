@@ -163,27 +163,6 @@ const scheduleData = {
       "additionalInfo": "https://telegra.ph/Discipl%D1%96na-v%D1%96lnogo-viboru-studenta-03-08",
       "alternative": false
     },
-    //
-    {
-      "time": "13:05",
-      "week": "all",
-      "course": "",
-      "title": "",
-      "teacher": "",
-      "location": "",
-      "additionalInfo": "",
-      "alternative": true
-    },
-    {
-      "time": "14:40",
-      "week": "all",
-      "course": "lection",
-      "title": "Дисципліна вільного вибору",
-      "teacher": "",
-      "location": "Онлайн",
-      "additionalInfo": "https://telegra.ph/Discipl%D1%96na-v%D1%96lnogo-viboru-studenta-03-08",
-      "alternative": true
-    },
   ],
   "saturday": [
     {},
