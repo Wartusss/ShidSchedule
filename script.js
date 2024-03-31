@@ -194,6 +194,7 @@ const scheduleContent = document.querySelectorAll('.schedule-content');
 const today = new Date().getDay();
 let currentDay = '';
 let currentWeek = 'upper';
+let isAlternativeMode = false;
 const lessonTimes = ["13:05", "14:40", "16:20", "17:55"];
 const switchBtn = document.getElementById('switch');
 const nightElements = document.querySelectorAll('.container, body');
@@ -227,7 +228,7 @@ function displaySchedule(day) {
     const dayData = scheduleData[day];
     if (dayData) {
         dayData.forEach(timeSlotData => {
-            if ((day !== 'sunday' && day !== 'saturday')) {
+            if ((day !== 'sunday' && day !== 'saturday') && ((timeSlotData.week === 'all' || timeSlotData.week === currentWeek))) {
                 if (timeSlotData.course) {
                     const classElement = document.createElement('div');
                     classElement.classList.add('class');
